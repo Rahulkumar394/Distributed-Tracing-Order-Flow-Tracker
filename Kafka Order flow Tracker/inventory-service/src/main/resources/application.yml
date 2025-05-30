@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: inventory-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: inventory-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+kafka:
+  topics:
+    orders-new: orders.new
+    inventory-status: inventory.status
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -1,0 +1,26 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: notification-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+kafka:
+  topics:
+    inventory-status: inventory.status
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: '*'
