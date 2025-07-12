@@ -62,7 +62,6 @@ check notification log
 
 Tracing Verify Karna (Jaeger or Zipkin UI)
 Jaeger: Open karo http://localhost:16686
-Zipkin: Open karo http://localhost:9411
 
 Steps:
 Service dropdown mein OrderService select karo.
